@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="انتقال سریع و موقت متن بین دستگاه‌ها">
+  <title>کپی‌پیست — کلیپ‌بورد موقت</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="glow glow-one"></div><div class="glow glow-two"></div>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="صفحه اصلی"><span class="brand-mark">⌘</span><span>کپی‌پیست</span></a>
+    <span class="privacy-pill"><i></i> خصوصی، سریع، بی‌نیاز از حساب</span>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">CLIPBOARD, ANYWHERE</div>
+      <h1>متنت را اینجا بگذار،<br><em>هرجا خواستی بردار.</em></h1>
+      <p>یک راه سریع برای انتقال متن، لینک و کد بین دستگاه‌ها. بدون ثبت‌نام؛ با حذف خودکار.</p>
+    </section>
+
+    <section class="workspace card" aria-label="کلیپ‌بورد موقت">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="create" role="tab">ساخت کلیپ‌بورد</button>
+        <button class="tab" data-tab="receive" role="tab">دریافت با کد</button>
+      </div>
+
+      <form id="create-form" class="panel active" data-panel="create">
+        <label class="field-title" for="content">چه چیزی می‌خواهی منتقل کنی؟ <span id="counter">۰ / ۲۰٬۰۰۰</span></label>
+        <textarea id="content" maxlength="20000" placeholder="متن، لینک یا قطعه‌کدت را اینجا وارد کن…" required></textarea>
+        <div class="options-grid">
+          <label>زمان انقضا<select id="ttl"><option value="300">۵ دقیقه</option><option value="900">۱۵ دقیقه</option><option value="3600" selected>۱ ساعت</option><option value="21600">۶ ساعت</option><option value="86400">۲۴ ساعت</option></select></label>
+          <label>رمز عبور <small>(اختیاری)</small><div class="input-wrap"><input id="password" type="password" minlength="4" maxlength="128" placeholder="حداقل ۴ نویسه"><button type="button" class="icon-btn" id="toggle-password" aria-label="نمایش رمز">◉</button></div></label>
+        </div>
+        <label class="switch-row"><span><b>حذف پس از اولین مشاهده</b><small>محتوا بلافاصله بعد از باز شدن پاک می‌شود</small></span><input id="burn" type="checkbox"><i></i></label>
+        <button class="primary" type="submit"><span>ساخت کلیپ‌بورد موقت</span><b>←</b></button>
+      </form>
+
+      <form id="receive-form" class="panel" data-panel="receive">
+        <label class="field-title" for="code">کد کلیپ‌بورد را وارد کن</label>
+        <input id="code" class="code-input" maxlength="6" autocomplete="off" placeholder="مثلاً H7K2PX" required>
+        <label id="receive-password-wrap" class="hidden">رمز عبور<div class="input-wrap"><input id="receive-password" type="password" placeholder="رمز کلیپ‌بورد"></div></label>
+        <button class="primary" type="submit"><span>دریافت محتوا</span><b>←</b></button>
+      </form>
+
+      <section id="result" class="result hidden" aria-live="polite">
+        <div class="success-icon">✓</div><h2 id="result-title">کلیپ‌بورد آماده است</h2><p id="result-subtitle"></p>
+        <div id="created-result">
+          <div class="code-box"><span>کد دسترسی</span><strong id="result-code"></strong><button id="copy-code" class="copy-mini">کپی</button></div>
+          <div class="link-box"><input id="result-url" readonly><button id="copy-link" class="copy-mini">کپی لینک</button></div>
+          <div class="result-bottom"><div><img id="qr" alt="QR کد لینک کلیپ‌بورد"><small>برای بازکردن اسکن کن</small></div><button id="delete" class="danger">حذف همین حالا</button></div>
+        </div>
+        <div id="opened-result" class="hidden"><pre id="opened-content"></pre><button id="copy-content" class="primary">کپی محتوا</button></div>
+        <div class="countdown">زمان باقی‌مانده: <b id="countdown">—</b></div>
+        <button id="new-clipboard" class="text-button">ساخت کلیپ‌بورد جدید</button>
+      </section>
+      <div id="message" class="message hidden" role="alert"></div>
+    </section>
+
+    <section class="features"><article><span>⌛</span><h3>حذف خودکار</h3><p>بعد از انقضا، هیچ اثری از محتوا باقی نمی‌ماند.</p></article><article><span>◇</span><h3>بدون حساب کاربری</h3><p>بساز، کد را بفرست و تمام. هیچ ثبت‌نامی لازم نیست.</p></article><article><span>⌁</span><h3>رمز اختیاری</h3><p>برای یک لایه امنیت بیشتر، رمز تعیین کن.</p></article></section>
+    <aside class="warning"><span>!</span><p><b>یادآوری دوستانه</b> این سرویس برای رمزهای عبور، اطلاعات بانکی یا داده‌های بسیار محرمانه طراحی نشده است.</p></aside>
+  </main>
+  <footer><span>© ۲۰۲۶ کپی‌پیست</span><span>داده‌ها موقت‌اند؛ حریم خصوصی ماندگار.</span></footer>
+  <script src="/app.js" defer></script>
+</body></html>
